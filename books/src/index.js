@@ -3,8 +3,9 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import { Route, NavLink, BrowserRouter as Router, Switch } from 'react-router-dom'
 import App from './App';
-import Member from './components/member'
-import Book from './components/book'
+import Member from './components/member';
+import Book from './components/book';
+import BookRepo from './components/bookRepo';
 import NotFound from './components/notfound';
 import * as serviceWorker from './serviceWorker';
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -22,11 +23,15 @@ const routing = (
           <li>
             <NavLink activeClassName="active" to="/book">Book</NavLink>
           </li>
+          <li>
+            <NavLink activeClassName="active" to="/bookRepo">Book Repository</NavLink>
+          </li>
         </ul>
         <Switch>
         <Route exact path="/" component={App} />
         <Route path="/member" component={Member} />
         <Route path="/book" component={Book} />
+        <Route path="/bookRepo" component={BookRepo} />
         <Route component={NotFound}/>
         </Switch>
       </div>
