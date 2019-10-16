@@ -1,6 +1,7 @@
 import React,{Component} from 'react';
 import './App.css';
 // import Car from './components/car.js'
+import PageRouter from './components/pageRouter'
 
 class App extends Component{
   constructor(props){
@@ -24,7 +25,7 @@ class App extends Component{
    render(){
      return(
         <div>
-          <h1>Home</h1>
+          <PageRouter/>
           {/* <Car year= "2012"/> */}
           {/* <p className="App-intro">;{this.state.apiResponse}</p> */}
         </div>

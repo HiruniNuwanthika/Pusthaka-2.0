@@ -1,14 +1,14 @@
 import React, { useState } from 'react';
 import axios from 'axios';
+import {Row, Label, Input, Button, Form} from 'reactstrap'
 
-  const BookRepo = () => {
+const BookRepo = () => {
     const [searchTerm, setSearchTerm] = useState('');
     const [books, setBooks] = useState({items: []});
     const onInputChange = (e) => {
       setSearchTerm(e.target.value);
     }
 
-  
     let API_URL = `https://www.googleapis.com/books/v1/volumes`;
   
     const fetchBooks = async () => {
@@ -36,18 +36,23 @@ import axios from 'axios';
 
     return (
       <section>
-        <form onSubmit={onSubmitHandler}>
-          <label>
-            <span>Search for books</span>
-            <input 
-              type="search" 
-              placeholder="microservice, restful design, etc.," 
-              value={searchTerm}
-              onChange={onInputChange}
-            />
-            <button type="submit">Search</button>
-          </label>
-        </form>
+        
+        <span>&nbsp;&nbsp;</span>
+        <Form onSubmit={onSubmitHandler}>
+        <Row>
+          <Label style={{margin:"5px"}}>Name of the book</Label>
+          <Input
+            style={{margin:"5px"}}
+            type="text" 
+            placeholder="type name of the book" 
+            value={searchTerm}
+            onChange={onInputChange}
+          />
+          <Button style={{margin:"5px"}} type="submit"  color="primary" >Search</Button>
+        </Row>
+          
+            
+        </Form>
         <ul>
           {
             books.items.map((book, index) => {
